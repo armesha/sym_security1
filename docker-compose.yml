@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      APP_ENV: dev
+      APP_SECRET: 24e17c47430bd2044a61c131c1cf6990
+      DATABASE_URL: "sqlite:///%kernel.project_dir%/var/app.db"

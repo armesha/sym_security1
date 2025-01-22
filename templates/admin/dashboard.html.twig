@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col">
+        <h1>Admin Dashboard</h1>
+        <p class="text-muted">Welcome, {{ user.email }}!</p>
+        <p>Your roles: {{ user.roles|join(', ') }}</p>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">API Testing</h5>
+            </div>
+            <div class="card-body">
+                <p>Test the API endpoints with these credentials:</p>
+                <pre class="bg-light p-3">
+curl -H "X-API-TOKEN: api@example.com" http://localhost:8000/api/posts
+
+# Edit a post (requires admin or ownership)
+curl -X POST \
+     -H "X-API-TOKEN: admin@example.com" \
+     -H "Content-Type: application/json" \
+     -d '{"title":"Updated Title"}' \
+     http://localhost:8000/api/posts/1/edit</pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Role Information</h5>
+            </div>
+            <div class="card-body">
+                <h6>Role Hierarchy:</h6>
+                <ul>
+                    <li>ROLE_SUPER_ADMIN
+                        <ul>
+                            <li>ROLE_ADMIN</li>
+                            <li>ROLE_API_ADMIN</li>
+                        </ul>
+                    </li>
+                    <li>ROLE_ADMIN
+                        <ul>
+                            <li>ROLE_USER</li>
+                        </ul>
+                    </li>
+                    <li>ROLE_API_ADMIN
+                        <ul>
+                            <li>ROLE_API_USER</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
