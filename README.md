@@ -1,8 +1,4 @@
-# Bezpečnostní Systém s Víceúrovňovou Konfigurací Firewallu
-
-
 ## http://16.171.195.215:8080/ (aws amazon linux)
-Tento projekt implementuje pokročilý bezpečnostní systém s důrazem na víceúrovňovou konfiguraci firewallu a hierarchické řízení přístupu.
 
 ## Hlavní funkce
 
